@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@custom-variant dark (&:where([data-theme=dark], .dark *));
+
+/* --- Définition des design tokens --- */
+@theme {
+  /* Couleurs principales du thème clair (par défaut) */
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222.2 84% 4.9%);
+  --color-primary: hsl(221.2 83.2% 53.3%);
+  --color-primary-foreground: hsl(210 40% 98%);
+  --color-secondary: hsl(210 40% 96.1%);
+  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
+}
+
+/* --- Couleurs du thème sombre --- */
+@layer base {
+  [data-theme="dark"] {
+    --color-background: hsl(222.2 84% 4.9%);
+    --color-foreground: hsl(210 40% 98%);
+    --color-primary: hsl(217.2 91.2% 59.8%);
+    --color-primary-foreground: hsl(222.2 47.4% 11.2%);
+    --color-secondary: hsl(217.2 32.6% 17.5%);
+    --color-secondary-foreground: hsl(210 40% 98%);
+  }
+
+  /* Corps de page — applique les couleurs dynamiques */
+  body {
+    @apply bg-[--color-background] text-[--color-foreground];
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Smooth scrolling for in-page navigation */
+  html {
+    scroll-behavior: smooth;
+  }
+}

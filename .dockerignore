@@ -1,0 +1,16 @@
+.git
+node_modules
+.next
+.tmp
+tests
+docs
+void
+*.md
+*.tsbuildinfo
+package-lock.json
+.env
+.env.*
+npm-debug.log*
+yarn-error.log*
+Dockerfile
+.dockerignore
